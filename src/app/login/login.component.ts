@@ -20,7 +20,21 @@ export class LoginComponent {
   })
 
   login() {
-    console.log('Belépés...')
+    this.auth.login(this.loginForm.value).subscribe({
+      next: (result: any) => {
+        if(result.success) {
+          console.log(result.data[0].token)
+          const token = result.data[0].token
+          localStorage.setItem("token", token)
+          this.auth.loginSuccess()
+          this.router.navigate(['drink'])
+        }else {
+          console.log('Nem-nem!')
+        }
+
+      },
+      error: () => {}
+    })
   }
 
 }
