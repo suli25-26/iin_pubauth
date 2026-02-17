@@ -2,6 +2,10 @@
   <a routerLink="home" class="nav-link">Főoldal</a>
   @if(!auth.isAuthenticated()) {
     <a routerLink="login" class="nav-link">Belépés</a>
+  }@else {
+    <a routerLink="drink" class="nav-link">Italok</a>
+    <a (click)="logout()" class="nav-link"
+    style="cursor: pointer;">Kilépés</a>
   }
   
 

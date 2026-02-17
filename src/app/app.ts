@@ -12,4 +12,8 @@ export class App {
   protected readonly title = signal('web');
   protected readonly auth = inject(AuthService)
   
+  logout() {
+    console.log('kilépés...')
+    this.auth.logout()
+  }
 }
